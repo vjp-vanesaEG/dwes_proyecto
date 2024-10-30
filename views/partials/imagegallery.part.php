@@ -20,3 +20,4 @@ foreach ($imagenes as $imagen) {
       </div>
     HTML;
 }
+// Distribución aleatoria de imágenes
