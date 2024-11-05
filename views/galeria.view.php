@@ -45,6 +45,24 @@
             </form>
             <hr class="divider">
             <div class="imagenes_galeria">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Visualizaciones</th>
+                            <th scope="col">Likes</th>
+                            <th scope="col">Descargas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach($imagenes as $img):?>
+                        <tr>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
