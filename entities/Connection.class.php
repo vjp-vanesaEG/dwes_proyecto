@@ -1,21 +1,22 @@
 <?php
 
+require 'entities/App.class.php';
 class Connection
 {
 
     public static function make()
     {
 
-        $opciones = [
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_PERSISTENT => true
-        ];
-
         try {
-            $connection = new PDO('mysql:host=dwes.local;dbname=proyecto;charset=utf8', 'user', 'user', $opciones);
+            $config = App::get('config')['database'];
+            $connection = new PDO(
+                $config['connection']. ';dbname='.$config['name'],
+                $config['username'],
+                $config['password'],
+                $config['options']
+);
         } catch (PDOException $PDOException) {
-            die($PDOException->getMessage());
+            throw new AppException(getErrorString(ERROR_CON_BBDD));
         }
 
         return $connection;

@@ -1,6 +1,8 @@
 <?php
 require_once 'utils/strings.php';
 require_once 'exceptions/QueryException.class.php';
+require_once 'entities/imagenGaleria.class.php';
+
 class QueryBuilder{
 
     private $connection;
@@ -18,10 +20,10 @@ class QueryBuilder{
         $pdoStatement = $this->connection->prepare($sqlStatement);
 
         if($pdoStatement->execute()===false){
-            throw new QueryException(ERROR_STRINGS(ERROR_EXECUTIVE_STATEMENT));
+            throw new QueryException(ERROR_STRINGS[ERROR_EXECUTE_STATEMENT]);
         }
 
-        return $pdoStatement ->fetchAll(PDO::FETCH_CLASS  $classEntities);
+        return $pdoStatement ->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $classEntities);
 
     }
 
