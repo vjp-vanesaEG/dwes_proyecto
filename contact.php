@@ -1,6 +1,6 @@
 <?php
 
-require "utils/ultis.php";
+require_once "utils/ultis.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errores = [];
@@ -43,6 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require "views/contact.views.php"
+require_once "views/contact.views.php"
 
 ?>

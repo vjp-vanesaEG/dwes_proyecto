@@ -1,6 +1,6 @@
 <?php
 
-require 'entities/App.class.php';
+require_once 'entities/App.class.php';
 class Connection
 {
 

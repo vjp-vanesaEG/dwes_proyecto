@@ -1,5 +1,6 @@
 <?php
-require 'exceptions/AppException.class.php';
+require_once 'exceptions/AppException.class.php';
+require_once 'utils/strings.php';
 
 class App{
 

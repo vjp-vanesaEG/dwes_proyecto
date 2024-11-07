@@ -1,4 +1,4 @@
 <?php
-    require "utils/ultis.php";
-    require "views/about.views.php"
+    require_once "utils/ultis.php";
+    require_once "views/about.views.php"
 ?>
