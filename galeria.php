@@ -2,11 +2,14 @@
 
 require_once 'utils/ultis.php';
 require_once 'entities/File.class.php';
+require_once 'exceptions/FileException.class.php';
 require_once 'entities/imagenGaleria.class.php';
 require_once 'entities/Connection.class.php';
 require_once 'entities/QueryBuilder.class.php';
 require_once 'exceptions/AppException.class.php';
 require_once 'entities/repository/ImagenGaleriaRepositorio.class.php';
+require_once 'entities/repository/CategoriaRepositorio.class.php';
+require_once 'entities/Categoria.class.php';
 
 $errores = [];
 $descripcion = '';
@@ -19,17 +22,18 @@ try {
     App::bind('config', $config);
 
     $imagenRepositorio = new ImagenGaleriaRepositorio();
-    $connection = App::getConnection();
+    $categoriaRepositorio = new CategoriaRepositorio();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
+        $categoria = trim(htmlspecialchars($_POST['categoria']));
         $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
         $imagen = new File('imagen', $tiposAceptados);
-        //$imagen->saveUploadedFile(imagenGaleria::rutaImagenesGallery);
+        $imagen->saveUploadFile(imagenGaleria::rutaImagenesGallery);
         $imagen->copyFile(ImagenGaleria::rutaImagenesGallery, ImagenGaleria::rutaImagenesPortfolio);
-        
-        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion);
+
+        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
         $imagenRepositorio->save($imagenGaleria);
         $descripcion ='';
         $mensaje = 'Imagen guardada';
@@ -55,7 +59,11 @@ try {
     $errores[] = $exception->getMessage();
 } catch (PDOException $exception) {
     $errores[] = $exception->getMessage();
+} catch (PDOException $exception) {
+    $errores[] = $exception->getMessage();
 }finally{
-    $imagenes = $imagenRepositorio->findAll();}
+    $imagenes = $imagenRepositorio->findAll();
+    $categorias =$categoriaRepositorio->findAll();
+}
 
 require_once 'views/galeria.view.php';

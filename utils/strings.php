@@ -30,7 +30,6 @@ $errorStrings[ERROR_INS_BBDD] = "No se ha podido hacer la insercción en la base
 define('ERROR_STRINGS', $errorStrings);
 
 function getErrorString($errorCode){
-    return match(true){
-        $errorCode=>ERROR_STRINGS[$errorCode]
-    };
-}
+    return ERROR_STRINGS[$errorCode];
+    }
+?>

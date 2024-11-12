@@ -48,8 +48,27 @@ class QueryBuilder
         try {
             $statement = $this->connection->prepare($sql);
             $statement->execute($parameters);
+            if($entity instanceof ImagenGaleria){ //si es una imagen lo que estamos insertando en la tabla, incrementa el número de imágenes en la tabla correspondiente.
+                $this-> incrementaNumCategorias($entity->getCategoria());
+            }
         } catch (PDOException $exception) {
             throw new PDOException(getErrorString(ERROR_INS_BBDD));
+            // throw new PDOException ($exception->getMessage());
         }
     }
+
+    public function incrementaNumCategorias(int $categoria){
+        try{
+            $this->connection->beginTransaction();
+            $sql = "UPDATE categorias SET numImagenes= numImagenes +1 WHERE id=$categoria";
+            $this->connection->exec($sql);
+            $this->connection->commit();
+        }catch (Exception $exception){
+            $this->connection->rollBack();
+            throw new Exception($exception->getMessage());
+        }
+       
+
+    }
+
 }

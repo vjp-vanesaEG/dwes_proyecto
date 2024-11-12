@@ -1,13 +1,7 @@
 <?php
 
-interface IEntity{
+interface IEntity
+{
 
-    public function toArray():array;
-
-
-
-    }
-
-
-
-?>
+    public function toArray(): array;
+}

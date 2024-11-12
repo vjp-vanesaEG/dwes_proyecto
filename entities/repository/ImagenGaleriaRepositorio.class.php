@@ -1,23 +1,14 @@
 <?php
 
-    require_once 'entities/QueryBuilder.class.php';
+require_once 'entities/QueryBuilder.class.php';
 
-    class ImagenGaleriaRepositorio extends QueryBuilder{
+class ImagenGaleriaRepositorio extends QueryBuilder
+{
 
-        public function __construct(string $table ='imagenes', string $classEntities='imagenGaleria'){
+    public function __construct(string $table = 'imagenes', string $classEntities = 'imagenGaleria')
+    {
 
-            parent::__construct($table,$classEntities);
-            
-        }
-
-
-
-
-
-
-
-
+        parent::__construct($table, $classEntities);
     }
 
-
-?>
+}

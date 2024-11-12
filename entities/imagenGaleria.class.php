@@ -11,8 +11,9 @@
         private $numLikes;
         private $numDownloads;
         private $id;
+        private $categoria;
 
-        public function __construct(string $nombre ='', string $descripcion ='', int $numVisualizaciones=0, int $numLikes=0, int $numDownloads=0)
+        public function __construct(string $nombre ='', string $descripcion ='',int $categoria=0, int $numVisualizaciones=0, int $numLikes=0, int $numDownloads=0)
         {
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
@@ -20,6 +21,7 @@
             $this->numLikes = $numLikes;
             $this->numDownloads = $numDownloads;
             $this->id=null;
+            $this->categoria=$categoria;
         }
 
         public function getNombre() : string{
@@ -76,6 +78,14 @@
             return self::rutaImagenesGallery.$this->getNombre();
         }
 
+        public function getCategoria(){
+            return $this->categoria;
+        }
+
+        public function setCategoria(string $categoria){
+            $this->categoria = $categoria;
+        }
+
         public function toArray(): array
         {
           return [ 'id' => $this->getId(),
@@ -83,7 +93,9 @@
            'descripcion' => $this->getDescripcion(), 
            'numVisualizaciones' => $this->getNumVisualizaciones(), 
            'numLikes' => $this->getNumLike(), 
-           'numDownloads' => $this->getNumDownloads()]; 
+           'numDownloads' => $this->getNumDownloads(),
+           'categoria' => $this->getCategoria()
+        ]; 
         }
     }
 
