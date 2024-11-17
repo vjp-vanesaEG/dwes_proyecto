@@ -34,6 +34,17 @@
             <i class="fa fa-phone-square sr-icons"></i> Contact
           </a>
         </li>
+        <!-- este lo hemos añadido despues-->
+        <li class="<?php echo esOpcionMenuActiva("/galeria.php") ? "active" : "" ?>lien">
+          <a href="<?php echo esOpcionMenuActiva("/galeria.php") ? "#" : "galeria.php" ?>">
+            <i class="fa fa-image sr-icons"></i> Gallery
+          </a>
+          <!-- este lo hemos añadido despues-->
+          <li class="<?php echo esOpcionMenuActiva("/asociados.php") ? "active" : "" ?>lien">
+          <a href="<?php echo esOpcionMenuActiva("/asociados.php") ? "#" : "asociados.php" ?>">
+            <i class="fa fa-hand-o-right sr-icons"></i> Partners
+          </a>
+        </li>
       </ul>
     </div>
   </div>
