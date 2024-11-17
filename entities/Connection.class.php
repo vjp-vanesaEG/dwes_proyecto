@@ -1,6 +1,7 @@
 <?php
 
 require_once 'entities/App.class.php';
+require_once 'utils/strings.php';
 class Connection
 {
 
@@ -22,3 +23,4 @@ class Connection
         return $connection;
     }
 }
+?>

@@ -1,6 +1,9 @@
 <?php
 require_once "utils/ultis.php";
-require_once "entities/imagenGaleria.class.php";
+require_once "entities/ImagenGaleria.class.php";
+require_once 'entities/Partners.class.php';
+require_once 'entities/Connection.class.php';
+require_once 'entities/repository/ImagenGaleriaRepositorio.class.php';
 
 // Inicializazamos un array vacío para almacenar los objetos de tipo ImagenGaleria
 $imagenes = [];
