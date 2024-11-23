@@ -1,6 +1,10 @@
 <?php
 
-require_once "utils/ultis.php";
+require_once "utils/utils.php";
+
+//Validación del formulario para que todos los datos que se envíen sean correctos.
+//En el caso de que no fuera así se mostrarán mensajes con los errores correspondientes.
+//Si introduce bien los datos se mostrarán como han quedado guardados.
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errores = [];

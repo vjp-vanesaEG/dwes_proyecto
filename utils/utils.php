@@ -1,11 +1,11 @@
 <?php
+
+//Funciones para comprobar si la opción del menú está activa o no.
+
 function esOpcionMenuActiva(string $opcionMenu): bool
 {
-    if ($_SERVER['PHP_SELF'] == $opcionMenu) {
-        return true;
-    } else {
-        return false;
-    }
+    // Verifica si el nombre de la opción está en la ruta actual
+    return strpos($_SERVER['PHP_SELF'], $opcionMenu) !== false;
 }
 
 function existeOpcionMenuActivaEnArray(array $opciones): bool

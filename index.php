@@ -1,5 +1,5 @@
 <?php
-require_once "utils/ultis.php";
+require_once "utils/utils.php";
 require_once "entities/ImagenGaleria.class.php";
 require_once 'entities/Partners.class.php';
 require_once 'entities/Connection.class.php';

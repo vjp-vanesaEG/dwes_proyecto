@@ -1,7 +1,7 @@
 <?php include __DIR__ . '/partials/inicio-doc.part.php' ?>
 
 <!-- Navigation Bar -->
-<?php include __DIR__.'/partials/nav.part.php'?>
+<?php include __DIR__ . '/partials/nav.part.php' ?>
 <!-- End of Navigation Bar -->
 
 <!-- Principal Content Start -->
@@ -12,32 +12,34 @@
 			<hr>
 			<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
+			<!-- Aquí se mostrarán los div correspondientes para mostrar los mensajes al usuario en función del estado de las validaciones (errores o datos procesados correctamente) -->
+
 			<?php if (isset($errores) && empty($errores) && empty($errorEmail)): ?>
 				<div class="alert alert-info">
-					<?php 
-						foreach ($datos as $dato) {
-							echo "$dato <br>";
-						}
+					<?php
+					foreach ($datos as $dato) {
+						echo htmlspecialchars($dato) . "<br>"; //con htmlspecialchars evitaremos posibles errores con los caracteres especiales
+					}
 					?>
 				</div>
 			<?php endif; ?>
 
 			<?php if (isset($errores) && !empty($errores)): ?>
 				<div class="alert alert-danger">
-					<?php 
-						foreach ($errores as $error) {
-							echo "$error <br>";
-						}
+					<?php
+					foreach ($errores as $error) {
+						echo htmlspecialchars($error) . "<br>";
+					}
 					?>
 				</div>
 			<?php endif; ?>
 
 			<?php if (isset($errorEmail) && !empty($errorEmail)): ?>
 				<div class="alert alert-danger">
-					<?php 
-						foreach ($errorEmail as $email) {
-							echo "$email <br>";
-						}
+					<?php
+					foreach ($errorEmail as $email) {
+						echo htmlspecialchars($email) . "<br>";
+					}
 					?>
 				</div>
 			<?php endif; ?>

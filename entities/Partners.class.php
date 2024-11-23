@@ -1,12 +1,11 @@
 <?php
 
 class Partner{
-    //variables
+    
     private string $nombre;
     private string $logo;
     private string $descripcion;
 
-    //Constructor
     public function __construct(string $nombre, string $logo, string $descripcion)
     {
         $this->nombre = $nombre;
@@ -14,7 +13,6 @@ class Partner{
         $this->descripcion = $descripcion;
     }
 
-    //Setters
 	public function setNombre(string $nombre): void 
     {
         $this->nombre = $nombre;
@@ -30,7 +28,6 @@ class Partner{
         $this->descripcion = $descripcion;
     }
 
-    //Getters
 	public function getNombre(): string 
     {
         return $this->nombre;

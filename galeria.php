@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/ultis.php';
+require_once 'utils/utils.php';
 require_once 'entities/File.class.php';
 require_once 'exceptions/FileException.class.php';
 require_once 'entities/imagenGaleria.class.php';
