@@ -19,7 +19,10 @@ $mensaje = '';
 try {
     $config = require_once 'app/config.php';
 
+    //Establece la conexión con la BBDD
+
     App::bind('config', $config);
+
 
     $imagenRepositorio = new ImagenGaleriaRepositorio();
     $categoriaRepositorio = new CategoriaRepositorio();

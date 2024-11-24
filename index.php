@@ -24,9 +24,12 @@ for ($i = 1; $i <= 12; $i++) {
     $imagenes[] = $imagen;
 }
 
+// Barajamos las imágenes para que su orden sea aleatorio
+shuffle($imagenes);
+
 // Imprimimos el array de objetos (para probar)
 // echo '<pre>';
 // print_r($imagenes);
 // echo '</pre>';
 
-require "views/index.views.php";
+require_once "views/index.views.php";

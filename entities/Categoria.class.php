@@ -4,12 +4,9 @@ require_once 'entities/database/IEntity.class.php';
 
 class Categoria implements IEntity
 {
-
-
     private $id;
     private $nombre;
     private $numImagenes;
-
 
     public function __construct(string $nombre = '', int $numImagenes = 0)
     {
