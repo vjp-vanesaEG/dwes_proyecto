@@ -2,7 +2,7 @@
         <?php foreach ($imagenes as $imagen): ?>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="sol">
-                    <img class="img-responsive" src="<?= $imagen->getUrlPortafolio() ?>" alt="<?= $imagen->getDescripcion() ?>">
+                    <img class="img-responsive" src="<?= $imagen->getUrlPortfolio() ?>" alt="<?= $imagen->getDescripcion() ?>">
                     <div class="behind">
                         <div class="head text-center">
                             <ul class="list-inline">

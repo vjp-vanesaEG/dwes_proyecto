@@ -1,6 +1,11 @@
 <?php
 
 require_once "utils/utils.php";
+require_once 'entities/Mensaje.class.php';
+require_once 'entities/repository/MensajeRepositorio.class.php';
+require_once 'exceptions/AppException.class.php';
+require_once 'exceptions/Fileexception.class.php';
+require_once 'exceptions/QueryException.class.php';
 
 //Validación del formulario para que todos los datos que se envíen sean correctos.
 //En el caso de que no fuera así se mostrarán mensajes con los errores correspondientes.
@@ -46,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $datos[]= "Mensaje: ".$mensaje;
     }
 }
+
 
 require_once "views/contact.views.php"
 

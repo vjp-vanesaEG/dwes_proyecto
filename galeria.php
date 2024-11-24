@@ -5,9 +5,9 @@
     require_once 'entities/Connection.class.php';
     require_once 'entities/QueryBuilder.class.php';
     require_once 'exceptions/AppException.class.php';
+    require_once 'exceptions/FileException.class.php';
     require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
     require_once 'entities/repository/CategoriaRepositorio.class.php';
-    require_once 'entities/Categoria.class.php';
 
     $errores = [];
     $descripcion = '';

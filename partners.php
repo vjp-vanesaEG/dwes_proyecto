@@ -4,8 +4,9 @@ require 'utils/utils.php';
 require_once 'entities/Partners.class.php';
 require_once 'entities/repository/PartnersRepositorio.class.php';
 require_once 'entities/File.class.php';
-require_once 'entities/ImagenGaleria.class.php';
 require_once 'entities/Connection.class.php';
+require_once 'exceptions/AppException.class.php';
+require_once 'exceptions/FileException.class.php';
 
 $errores = [];
 $descripcion = '';
@@ -35,7 +36,7 @@ try {
         //Sentencias SQL de tipo INSERT
         $partner = new Partners($nombre, $logo->getFileName(), $descripcion);
         $partnerRepositorio->save($partner);
-        $mensaje = 'Partner guardado';
+        $mensaje = 'Logo guardado';
     }
 } catch (FileException $exception) {
     $errores[] = $exception->getMessage();
