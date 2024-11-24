@@ -45,7 +45,7 @@ class File{
         $contador = 1; // contado con el numero que tendra la imagen si se repite
         $ruta = $rutaDestino . $this->file['name'];//Ruta
    
-        // Si el archivo ya existe,pone un numero despues del nombre y antes de la extension
+        // Si el archivo ya existe en la ruta destino, genera un nombre nuevo agregando un sufijo numérico
         while (file_exists($ruta)) {
             $this->fileName = $nombreBase . "_$contador." . $extension;
             $ruta = $rutaDestino . $this->fileName;
@@ -61,25 +61,20 @@ class File{
             throw new FileException(ERROR_STRINGS[ERROR_MV_UP_FILE]);
         }
     }
+
+
    
-    /**
-     * @param string $rutaOrigen
-     * @param string $rutaDestino
-     * @throws FileException
-     */
     public function copyFile (string $rutaOrigen,string $rutaDestino){
-        $origen = $rutaOrigen.$this->fileName;
-        $destino = $rutaDestino.$this->fileName;
+        $origen = $rutaOrigen . $this->fileName;
+        $destino = $rutaDestino . $this->fileName;
         // Verifica que el archivo de origen exista
         if(is_file($origen)==false){
             throw new FileException("No existe el fichero $origen que intentas copiar");
-
 
         }
         // Verifica si el archivo de destino ya existe
         if(is_file($destino)==true){
             throw new FileException("El fichero $destino ya existe y no se puede sobreescribir");
-
 
         }
         // Copia el archivo de origen al destino

@@ -24,10 +24,5 @@ public static function getConnection(){
     return self::$container['connection'];
 }
 
-
-
-
-
-
 }
 ?>

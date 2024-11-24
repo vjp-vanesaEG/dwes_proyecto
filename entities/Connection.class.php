@@ -2,8 +2,10 @@
 
 require_once 'entities/App.class.php';
 require_once 'utils/strings.php';
+
 class Connection
 {
+    //Creación de la conexión a la BBDD a través del método make
 
     public static function make()
     {

@@ -24,20 +24,25 @@ class QueryBuilder
         $this->classEntities = $classEntities;
     }
 
-    public function findAll()
-    {
-        $sqlStatement = "Select * from  $this->table";
-        $pdoStatement = $this->connection->prepare($sqlStatement);
+    //Método que se conecta a la base de datos, ejecuta una consulta SQL para obtener todos los registros de una tabla específica y devuelve esos registros en forma de objetos.
 
+    public function findAll(): array
+    {
+        // Definición de la consulta SQL
+        $sqlStatement = "Select * from  $this->table";
+        // Preparación de la consulta
+        $pdoStatement = $this->connection->prepare($sqlStatement);
+        // Ejecución de la consulta
         if ($pdoStatement->execute() === false) {
             throw new QueryException(ERROR_STRINGS[ERROR_EXECUTE_STATEMENT]);
         }
-
+        // Recuperación de los resultados como objetos
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntities);
     }
 
     public function save(IEntity $entity): void
     {
+        try {
         $parameters = $entity->toArray();
 
         $sql = sprintf(
@@ -47,7 +52,6 @@ class QueryBuilder
             ':' . implode(', :', array_keys($parameters))
         );
 
-        try {
             $statement = $this->connection->prepare($sql);
             $statement->execute($parameters);
             if($entity instanceof ImagenGaleria){ //si es una imagen lo que estamos insertando en la tabla, incrementa el número de imágenes en la tabla correspondiente.

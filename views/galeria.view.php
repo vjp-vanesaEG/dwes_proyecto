@@ -81,7 +81,7 @@
                             </td>
                             <td><?=$categorias[$img->getCategoria() -1]->getNombre()?></td>
                             <td><?=$img->getNumVisualizaciones()?></td>
-                            <td><?=$img->getNumLike()?></td>
+                            <td><?=$img->getNumLikes()?></td>
                             <td><?=$img->getNumDescargas()?></td>
                         </tr>
                         <?php endforeach;?>

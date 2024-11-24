@@ -20,7 +20,8 @@ function existeOpcionMenuActivaEnArray(array $opciones): bool
 }
 
 //Función para extraer 3 partners de un array y los devuelve
-function extractorPartners(array $partners): array
+
+function extraerPartners(array $partners): array
 {
     shuffle($partners);
     return array_slice($partners, 0, 3);
