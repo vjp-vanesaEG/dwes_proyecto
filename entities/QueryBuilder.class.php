@@ -3,6 +3,7 @@ require_once 'exceptions/QueryException.class.php';
 require_once 'utils/strings.php';
 require_once 'entities/App.class.php';
 require_once 'entities/Categoria.class.php';
+require_once 'entities/Partners.class.php';
 
 abstract class QueryBuilder{
 

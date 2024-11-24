@@ -4,7 +4,7 @@
 <!-- Principal Content Start -->
 <div class="container">
     <div class="col-xs-12 col-sm-8 col-sm-push-2">
-        <h1>Asociados</h1>
+        <h1>Partners</h1>
         <hr>
         <!--- Compruebo a ver si estoy recibiendo los datos del formulario -->
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>

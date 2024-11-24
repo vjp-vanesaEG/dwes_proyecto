@@ -94,7 +94,7 @@ $categories = [
          <h4>Our Main Partners</h4>
          <hr>
          <div class="text-muted text-left">
-         <?php require 'partials/partners.part.php' ?>
+         <?php require_once 'partials/partners.part.php' ?>
            <ul class="list-inline">
              <li><img src="images/index/log2.jpg" alt="logo"></li>
              <li>First Partner Name</li>

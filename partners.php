@@ -1,7 +1,7 @@
 <?php
 require_once 'utils/utils.php';
 require_once 'entities/File.class.php';
-require_once 'entities/Partner.class.php';
+require_once 'entities/Partners.class.php';
 require_once 'entities/repository/PartnersRepositorio.class.php';
 require_once 'entities/Connection.class.php';
 require_once 'exceptions/AppException.class.php';
@@ -12,7 +12,7 @@ $descripcion='';
 $mensaje='';
 
 try{
-    $config=require_once'app/config.php';
+    $config = require_once 'app/config.php';
 
     App::bind('config',$config);
 
@@ -42,5 +42,5 @@ finally{
     $asociados =  $partnerRepositorio->findAll();
 }
 
-require_once 'views/partners.view.php';
+require_once 'views/partners.views.php';
 ?>

@@ -1,6 +1,8 @@
 <?php
 
 require_once 'entities/database/IEntity.class.php';
+require_once 'entities/QueryBuilder.class.php';
+require_once 'partners.php';
 
 class Partners implements IEntity {
 
