@@ -7,12 +7,6 @@ public function __construct(string $mensaje){
     
 }
 
-
-
-
 }
-
-
-
 
 ?>
