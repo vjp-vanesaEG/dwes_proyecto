@@ -17,14 +17,14 @@ public static function get(string $key){
     if(!array_key_exists($key,self::$container)){
         throw new AppException(getErrorString(ERROR_APP_CORE));
     }
-    return self::$container[$key];
+    return static::$container[$key];
 }
 
 public static function getConnection(){
     if(!array_key_exists('connection', self::$container)){
         self::$container['connection']= Connection::make();
     }
-    return self::$container['connection'];
+    return static::$container['connection'];
 }
 
 }

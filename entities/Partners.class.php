@@ -1,10 +1,10 @@
 <?php
 
-require_once 'database/IEntity.class.php';
+require_once 'entities/database/IEntity.class.php';
 
 class Partners implements IEntity {
 
-    const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
+    const RUTA_IMAGENES_GALERIA = 'images/index/gallery/';
 
     private $nombre;
     private $logo;
@@ -26,7 +26,7 @@ class Partners implements IEntity {
     }
 
     public function getUrlLogo() {
-        return self::RUTA_IMAGENES_GALLERY . $this->logo;
+        return self::RUTA_IMAGENES_GALERIA . $this->logo;
     }
 
     public function getId() {

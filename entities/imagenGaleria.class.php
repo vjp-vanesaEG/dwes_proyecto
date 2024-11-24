@@ -34,10 +34,6 @@ class ImagenGaleria implements IEntity
         return $this->nombre;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
     public function setNombre(string $nombre): void
     {
         $this->nombre = $nombre;
@@ -53,7 +49,6 @@ class ImagenGaleria implements IEntity
         $this->descripcion = $descripcion;
     }
 
-
     public function getNumVisualizaciones(): int
     {
         return $this->numVisualizaciones;
@@ -64,7 +59,6 @@ class ImagenGaleria implements IEntity
         $this->numVisualizaciones = $numVisualizaciones;
     }
 
-
     public function getNumLikes(): int
     {
         return $this->numLikes;
@@ -74,7 +68,6 @@ class ImagenGaleria implements IEntity
     {
         $this->numLikes = $numLikes;
     }
-
 
     public function getNumDescargas(): int
     {
@@ -104,6 +97,16 @@ class ImagenGaleria implements IEntity
     public function setCategoria(string $categoria)
     {
         $this->categoria = $categoria;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     //Array asociativo que muestra todas las propiedades de la clase (clave,valor).

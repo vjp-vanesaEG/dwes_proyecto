@@ -1,6 +1,7 @@
 <?php
-require __DIR__.'/../exceptions/FileException.class.php';
-require 'utils/strings.php';
+require_once 'exceptions/FileException.class.php';
+require_once 'utils/strings.php';
+
 class File{
     private $file;
     private $fileName;
@@ -17,6 +18,12 @@ class File{
             //Mostrar un error
             throw new FileException(ERROR_STRINGS[UPLOAD_ERR_NO_FILE]);
         }
+
+        if ($this->file['error'] !== UPLOAD_ERR_OK){
+
+            throw new FileException(ERROR_STRINGS[$this->file['error']]);
+        }
+
 
         //Comprobamos si el fichero subido es de un tipo de los quetenemos soportados
         if (in_array($this->file['type'], $arrTypes) === false) {
@@ -61,8 +68,6 @@ class File{
             throw new FileException(ERROR_STRINGS[ERROR_MV_UP_FILE]);
         }
     }
-
-
    
     public function copyFile (string $rutaOrigen,string $rutaDestino){
         $origen = $rutaOrigen . $this->fileName;

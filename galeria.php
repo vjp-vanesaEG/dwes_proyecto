@@ -80,5 +80,5 @@
         $imagenes = $imagenRepository->findAll();
         $categorias = $categoriaRepositorio->findAll();
     }
-    require 'views/galery.view.php';
+    require 'views/galeria.view.php';
 ?>
