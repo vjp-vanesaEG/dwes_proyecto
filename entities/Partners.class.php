@@ -1,18 +1,18 @@
 <?php
 
-require_once 'entities/database/IEntity.class.php';
-require_once 'entities/QueryBuilder.class.php';
-require_once 'partners.php';
+require_once 'database/IEntity.class.php';
 
 class Partners implements IEntity {
-
-    const RUTA_IMAGENES_GALERIA = 'images/index/gallery/';
-
+    //Consante
+    const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
+    //Variables
     private $nombre;
     private $logo;
     private $descripcion;
     private $id;
 
+
+    //Constructor
     public function __construct($nombre = '', $logo = '', $descripcion = '') {
         $this->nombre = $nombre;
         $this->logo = $logo;
@@ -27,10 +27,12 @@ class Partners implements IEntity {
         ];
     }
 
+
     public function getUrlLogo() {
-        return self::RUTA_IMAGENES_GALERIA . $this->logo;
+        return self::RUTA_IMAGENES_GALLERY . $this->logo;
     }
 
+    //Getters
     public function getId() {
         return $this->id;
     }

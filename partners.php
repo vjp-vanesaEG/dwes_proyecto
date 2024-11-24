@@ -1,46 +1,52 @@
 <?php
-require_once 'utils/utils.php';
-require_once 'entities/File.class.php';
+
+require 'utils/utils.php';
 require_once 'entities/Partners.class.php';
 require_once 'entities/repository/PartnersRepositorio.class.php';
+require_once 'entities/File.class.php';
+require_once 'entities/ImagenGaleria.class.php';
 require_once 'entities/Connection.class.php';
-require_once 'exceptions/AppException.class.php';
-require_once 'exceptions/FileException.class.php';
 
-$errores=[];
-$descripcion='';
-$mensaje='';
+$errores = [];
+$descripcion = '';
+$mensaje = '';
 
-try{
+try {
+
+    //Crea una conexión con la BBDD
     $config = require_once 'app/config.php';
+    App::bind('config', $config);
 
-    App::bind('config',$config);
+    //Uso: realizar INSERT y SELECT con la BBDD
+    $partnerRepositorio = new PartnersRepositorio();
 
-    $partnerRepositorio= new PartnersRepositorio();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $nombre = trim(htmlspecialchars($_POST['nombre']));
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
-        $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
 
-        $logo= new File('logo',$tiposAceptados);
+        $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png',];
 
-        $logo->saveUploadFile(Partners::RUTA_IMAGENES_GALERIA);
+        //Crea el fichero, lo guarda en la galería y lo copia en el directorio 'portfolio'
+        $logo = new File('logo', $tiposAceptados);
+        $logo->saveUploadFile(ImagenGaleria::rutaImagenesGallery);
+        $logo->copyFile(ImagenGaleria::rutaImagenesGallery, ImagenGaleria::rutaImagenesPortfolio);
 
-        $partner = new Partners($nombre,$logo->getFileName(),$descripcion);
+        //Sentencias SQL de tipo INSERT
+        $partner = new Partners($nombre, $logo->getFileName(), $descripcion);
         $partnerRepositorio->save($partner);
-        $mensaje='Imagen logo guardada';
-
-
+        $mensaje = 'Partner guardado';
     }
-
-}catch(FileException $exception) {
+} catch (FileException $exception) {
     $errores[] = $exception->getMessage();
-    //guardo en un array los errores
-}
-finally{
-    $asociados =  $partnerRepositorio->findAll();
+} catch (QueryException $exception) {
+    $errores[] = $exception->getMessage();
+} catch (AppException $exception) {
+    $errores[] = $exception->getMessage();
+} catch (PDOException $exception) {
+    $errores[] = $exception->getMessage();
+} finally {
+    $partners = $partnerRepositorio->findAll();
 }
 
-require_once 'views/partners.views.php';
-?>
+require 'views/partners.views.php';

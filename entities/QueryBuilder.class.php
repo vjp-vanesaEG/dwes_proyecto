@@ -3,7 +3,6 @@ require_once 'exceptions/QueryException.class.php';
 require_once 'utils/strings.php';
 require_once 'entities/App.class.php';
 require_once 'entities/Categoria.class.php';
-require_once 'entities/Partners.class.php';
 
 abstract class QueryBuilder{
 
@@ -56,7 +55,7 @@ abstract class QueryBuilder{
             $parameters = $entity->toArray();
 
 
-            // insert into imagenbes (descripcion, categoria) values (bytes, 1)
+            // insert into imagenes (descripcion, categoria) values (bytes, 1)
             $sql = sprintf(
                 'insert into %s (%s) values (%s)',
                 $this->table,

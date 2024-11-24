@@ -1,33 +1,30 @@
-<div class="last-box row">
-    <div class="col-xs-12 col-sm-4 col-sm-push-4 last-block">
-        <div class="partner-box text-center">
-            <p>
-                <i class="fa fa-map-marker fa-2x sr-icons"></i>
-                <span class="text-muted">35 North Drive, Adroukpape, PY 88105, Agoe Telessou</span>
-            </p>
-            <h4>Our Main Partners</h4>
-            <hr>
-            <div class="text-muted text-left">
+<?php 
+    // $partners = [];
+    //$auxPartners = [];
 
-                <?php
+    // $contadorLogo = 1;
 
-                if (count($arrayPartners) <= 3) { // si el array tiene 3 o menos elementos los muestra todos 
-                    $mostrarPartner = $arrayPartners;
-                } else {
-                    if (count($arrayPartners) > 3) { // si el array tiene mas de 3 elementos solo muestra tres y llama al metodo obtenerTresPartners
-                        $mostrarPartner = extraerPartners($arrayPartners);
-                    }
-                }
+    // for ($i=1; $i <= 5 ; $i++) {
+    //     //Provisional junto a $contadorLogo
+    //     if($contadorLogo % 3 == 0){
+    //         $contadorLogo++;
+    //     }
 
-                ?>
-                <?php foreach ($mostrarPartner as $partner): ?>
-                    <ul class="list-inline">
-                        <li><img src="<?= $partner->getRutaLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>" width="100px"></li>
-                        <li><?= $partner->getNombre(); ?></li>
-                    </ul>
-                <?php endforeach; ?>
+    //     $partner = new Partner("Nombre " . $i, "log". $contadorLogo % 3 .".jpg" ,"Descripción " . $i);
+    //     array_push($partners,$partner);
+    //     $contadorLogo ++;
+    // }
 
-            </div>
-        </div>
-    </div>
-</div>
+    //Si hay (0,3] se mostrara todos los partners si (3,infinito) se mostrara 3 partners aleatorios
+    $auxPartners = $partners;
+    if(count($partners) > 3){
+        $auxPartners = extraerPartners($partners);
+    }
+?>    
+
+<?php foreach ($auxPartners as $partner): ?>
+    <ul class="list-inline">
+        <li><img src="<?= $partner->getUrlLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>" width="100px"></li>
+        <li><?= $partner->getNombre(); ?></li>
+    </ul> 
+<?php endforeach; ?>
