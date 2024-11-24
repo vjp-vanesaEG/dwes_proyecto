@@ -7,7 +7,7 @@ class ImagenGaleria implements IEntity
 {
     // Definimos las rutas de las imágenes de portfolio y galería
 
-    const rutaImagenesPortfolio = 'images/index/porfolio/';
+    const rutaImagenesPortfolio = 'images/index/portfolio/';
     const rutaImagenesGallery = 'images/index/gallery/';
 
     private $nombre;
