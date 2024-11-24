@@ -32,22 +32,22 @@ shuffle($imagenes);
 // print_r($imagenes);
 // echo '</pre>';
 
-$numeroDePartners = count($partners); // Obtener la cantidad de asociados
+// $numeroDePartners = count($partners); // Obtener la cantidad de asociados
 
-// Si hay más de 3 asociados, seleccionamos tres de forma aleatoria
-if ($numeroDePartners > 3) {
-    // Selección aleatoria de tres asociados
-    $keysAleatorias = array_rand($partners, 3); // Obtiene 3 claves aleatorias
+// // Si hay más de 3 asociados, seleccionamos tres de forma aleatoria
+// if ($numeroDePartners > 3) {
+//     // Selección aleatoria de tres asociados
+//     $keysAleatorias = array_rand($partners, 3); // Obtiene 3 claves aleatorias
     
-    // Si array_rand devuelve un solo valor (si se usa 1 en lugar de 3), aseguramos que sea un array
-    if (!is_array($keysAleatorias)) {
-        $keysAleatorias = [$keysAleatorias];
-    }
+//     // Si array_rand devuelve un solo valor (si se usa 1 en lugar de 3), aseguramos que sea un array
+//     if (!is_array($keysAleatorias)) {
+//         $keysAleatorias = [$keysAleatorias];
+//     }
     
-    // Creamos un array solo con los tres asociados seleccionados
-    $partners = array_map(function($key) use ($partners) {
-        return $partners[$key];
-    }, $keysAleatorias);
-}
+//     // Creamos un array solo con los tres asociados seleccionados
+//     $partners = array_map(function($key) use ($partners) {
+//         return $partners[$key];
+//     }, $keysAleatorias);
+// }
 
 require_once "views/index.views.php";

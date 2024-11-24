@@ -1,12 +1,11 @@
 <?php
 require_once 'utils/strings.php';
 require_once 'exceptions/QueryException.class.php';
-require_once 'entities/imagenGaleria.class.php';
 require_once 'entities/App.class.php';
-require_once 'entities/Categoria.class.php';
+require_once 'entities/database/IEntity.class.php';
 
 
-class QueryBuilder
+abstract class QueryBuilder
 {
 
     private $connection;
@@ -16,7 +15,7 @@ class QueryBuilder
     /**
      * @var $connection;
      */
-    public function __construct(string $table, string $classEntities)
+    public function __construct($table, $classEntities)
     {
 
         $this->connection = APP::getConnection();
@@ -26,7 +25,7 @@ class QueryBuilder
 
     //Método que se conecta a la base de datos, ejecuta una consulta SQL para obtener todos los registros de una tabla específica y devuelve esos registros en forma de objetos.
 
-    public function findAll(): array
+    public function findAll()
     {
         // Definición de la consulta SQL
         $sqlStatement = "Select * from  $this->table";
@@ -69,6 +68,7 @@ class QueryBuilder
             $sql = "UPDATE categorias SET numImagenes= numImagenes +1 WHERE id=$categoria";
             $this->connection->exec($sql);
             $this->connection->commit();
+
         }catch (Exception $exception){
             $this->connection->rollBack();
             throw new Exception($exception->getMessage());

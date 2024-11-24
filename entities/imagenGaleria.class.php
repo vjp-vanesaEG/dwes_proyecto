@@ -1,5 +1,8 @@
 <?php
 require_once 'entities/database/IEntity.class.php';
+
+//Todas las clases que implementen la interfaz tienen que usar el método toArray que devolverá sus atributos a través de los getters.
+
 class ImagenGaleria implements IEntity
 {
     // Definimos las rutas de las imágenes de portfolio y galería
