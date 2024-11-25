@@ -11,6 +11,7 @@
             <h1>GALLERY</h1>
             <hr>
 
+            <!-- Envío del formulario, en este caso subida del archivo. Si se manda correctamente se mostrará x mensaje y si no se selecciona nada se mostrarán los mensajes correspondientes  -->
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
                 <div class="alert alert-<?= empty($errores) ? 'info' : 'danger'; ?>alert-dismissibre" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -36,6 +37,8 @@
                         <input class="form-control-file" type="file" name="imagen">
                     </div>
                 </div>
+
+                <!-- Aquí se despliega el select de categorías para la elección de una de ellas  -->
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Category</label>
@@ -57,6 +60,8 @@
                 </div>
             </form>
             <hr class="divider">
+
+            <!-- Creación de una tabla que guardará las características de la imágenes que aparecerán en modo tabla justo debajo del formulario -->
             <div class="imagenes_galeria">
                 <table class="table">
                     <thead>

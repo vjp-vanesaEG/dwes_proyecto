@@ -3,36 +3,21 @@
 require_once 'database/IEntity.class.php';
 
 class Partners implements IEntity {
-    //Consante
+
+    //Definimos la ruta de galeria que es donde se encuentran los logos.
     const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
-    //Variables
+
     private $nombre;
     private $logo;
     private $descripcion;
     private $id;
 
-
-    //Constructor
     public function __construct($nombre = '', $logo = '', $descripcion = '') {
         $this->nombre = $nombre;
         $this->logo = $logo;
         $this->descripcion = $descripcion;
     }
 
-    public function toArray(): array{
-        return [
-            'nombre' => $this->nombre,
-            'logo' => $this->logo,
-            'descripcion' => $this->descripcion
-        ];
-    }
-
-
-    public function getUrlLogo() {
-        return self::RUTA_IMAGENES_GALLERY . $this->logo;
-    }
-
-    //Getters
     public function getId() {
         return $this->id;
     }
@@ -47,5 +32,17 @@ class Partners implements IEntity {
 
     public function getDescripcion() {
         return $this->descripcion;
+    }
+
+    public function getUrlLogo() {
+        return self::RUTA_IMAGENES_GALLERY . $this->logo;
+    }
+
+    public function toArray(): array{
+        return [
+            'nombre' => $this->nombre,
+            'logo' => $this->logo,
+            'descripcion' => $this->descripcion
+        ];
     }
 }

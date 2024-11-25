@@ -14,7 +14,7 @@
     $mensaje = '';
     
     try {
-        //Conexion a la base de datos
+        //Acceso al archivo de configuración de la base de datos
         $config = require_once 'app/config.php';
 
         //Guardamos la configuración en el contenedor de servicios:
@@ -32,12 +32,15 @@
         
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
+                // COn trim se limpia el formulario para evitar errores cuando se incluya otro archivo.
                 $descripcion = trim(htmlspecialchars($_POST['descripcion']));
                 $categoria = trim(htmlspecialchars($_POST['categoria']));
                 $tiposAceptados = ['image/jpeg','image/jpg','image/gif','image/png'];
+                //Procesa la imagen subida, la guarda y copia en las rutas correspondientes.
                 $imagen = new File('imagen',$tiposAceptados);
                 $imagen -> saveUploadFile(ImagenGaleria::rutaImagenesGallery);
                 $imagen -> copyFile(ImagenGaleria::rutaImagenesGallery,ImagenGaleria::rutaImagenesPortfolio);
+                //Crea el objeto imagen que representa el archivo subido y lo guarda.
                 $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
                 $imagenRepository->save($imagenGaleria);
                 $descripcion = "";
@@ -63,6 +66,8 @@
 
         // $queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
         // $imagenes = $queryBuilder->findAll();
+
+        //Aqui controlaremos todas los errores que puedan ocurrir que se encontrarán en la clase File definidos.
     }
     catch (FileException $exception) {
             $errores[] = $exception->getMessage();
@@ -73,7 +78,7 @@
     }catch(PDOException $exception){
         $errores[] = $exception->getMessage();
     }
-    finally{
+    finally{ //Aquí se cargarán todas las imágenes con sus categorías.
         
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
         

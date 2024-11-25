@@ -14,7 +14,7 @@
                 if (count($arrayPartners) <= 3) { // si el array tiene 3 o menos elementos los muestra todos 
                     $mostrarPartner = $arrayPartners;
                 } else {
-                    if (count($arrayPartners) > 3) { // si el array tiene mas de 3 elementos solo muestra tres y llama al metodo obtenerTresPartners
+                    if (count($arrayPartners) > 3) { // si el array tiene mas de 3 elementos solo muestra tres y llama al metodo extraerPartners
                         $mostrarPartner = extraerPartners($arrayPartners);
                     }
                 }
