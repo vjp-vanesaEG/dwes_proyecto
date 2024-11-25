@@ -11,7 +11,7 @@ require_once 'exceptions/QueryException.class.php';
 //En el caso de que no fuera así se mostrarán mensajes con los errores correspondientes.
 //Si introduce bien los datos se mostrarán como han quedado guardados.
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { //Post para comprobar que el formulario es enviado.
     $errores = [];
     $datos = [];
     $nombre = $_POST['nombre'];
@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mensaje = $_POST['mensaje'];
     $errorEmail= [];
 
+    //Arrays para guardar los posibles errores y los datos que se introduzcan correctamnente.
+
+    //Comprobaciones por si no cumplen lo requerido.
     if (empty($nombre)) {
         $errores[] = "El campo First Name no puede estar vacío";
     }else{
@@ -51,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $datos[]= "Mensaje: ".$mensaje;
     }
 }
-
 
 require_once "views/contact.views.php"
 

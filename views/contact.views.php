@@ -1,7 +1,7 @@
 <?php include __DIR__ . '/partials/inicio-doc.part.php' ?>
 
 <!-- Navigation Bar -->
-<?php include __DIR__.'/partials/nav.part.php'?>
+<?php include __DIR__ . '/partials/nav.part.php' ?>
 <!-- End of Navigation Bar -->
 
 <!-- Principal Content Start -->
@@ -12,32 +12,37 @@
 			<hr>
 			<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
+			<!-- Comprobación de si no hay errores de ningún tipo, mostrar en el array datos, los datos que se envían -->
 			<?php if (isset($errores) && empty($errores) && empty($errorEmail)): ?>
 				<div class="alert alert-info">
-					<?php 
-						foreach ($datos as $dato) {
-							echo "$dato <br>";
-						}
+					<?php
+					foreach ($datos as $dato) {
+						echo "$dato <br>";
+					}
 					?>
 				</div>
 			<?php endif; ?>
+
+			<!-- Comprobación de que existen errores y los muestra en el array errores, los fallos que hay -->
 
 			<?php if (isset($errores) && !empty($errores)): ?>
 				<div class="alert alert-danger">
-					<?php 
-						foreach ($errores as $error) {
-							echo "$error <br>";
-						}
+					<?php
+					foreach ($errores as $error) {
+						echo "$error <br>";
+					}
 					?>
 				</div>
 			<?php endif; ?>
 
+			<!-- Comprobación de si existe error en el email y los muestra en el array email -->
+
 			<?php if (isset($errorEmail) && !empty($errorEmail)): ?>
 				<div class="alert alert-danger">
-					<?php 
-						foreach ($errorEmail as $email) {
-							echo "$email <br>";
-						}
+					<?php
+					foreach ($errorEmail as $email) {
+						echo "$email <br>";
+					}
 					?>
 				</div>
 			<?php endif; ?>

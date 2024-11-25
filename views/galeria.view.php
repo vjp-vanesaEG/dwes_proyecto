@@ -28,6 +28,7 @@
                 </div>
             <?php endif; ?>
 
+            <!-- enctype es un atributo necesario cuando el formulario contiene campos que permiten cargar archivos, relacionado con type="file" -->
             <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>">
                 <div class="form-group">
                     <div class="col-xs-12">
@@ -39,11 +40,11 @@
                     <div class="col-xs-12">
                         <label class="label-control">Category</label>
                         <select class="form-control" name="categoria">
-                            <?php foreach($categorias as $categoria) :?>
-                            <option value="<?= $categoria->getId()?>">
-                                <?=$categoria ->getNombre()?>
-                            </option>
-                            <?php endforeach;?>
+                            <?php foreach ($categorias as $categoria) : ?>
+                                <option value="<?= $categoria->getId() ?>">
+                                    <?= $categoria->getNombre() ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -70,21 +71,21 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach($imagenes as $img):?>
-                        <tr>
-                            <th scope="row"><?=$img->getId()?></th>
-                            <td>
-                                <img src="<?=$img->getUrlGallery()?>"
-                                alt="<?=$img->getDescripcion()?>"
-                                title="<?=$img->getDescripcion()?>" 
-                                width="100px" >
-                            </td>
-                            <td><?=$categorias[$img->getCategoria() -1]->getNombre()?></td>
-                            <td><?=$img->getNumVisualizaciones()?></td>
-                            <td><?=$img->getNumLikes()?></td>
-                            <td><?=$img->getNumDescargas()?></td>
-                        </tr>
-                        <?php endforeach;?>
+                        foreach ($imagenes as $img): ?>
+                            <tr>
+                                <th scope="row"><?= $img->getId() ?></th>
+                                <td>
+                                    <img src="<?= $img->getUrlGallery() ?>"
+                                        alt="<?= $img->getDescripcion() ?>"
+                                        title="<?= $img->getDescripcion() ?>"
+                                        width="100px">
+                                </td>
+                                <td><?= $categorias[$img->getCategoria() - 1]->getNombre() ?></td>
+                                <td><?= $img->getNumVisualizaciones() ?></td>
+                                <td><?= $img->getNumLikes() ?></td>
+                                <td><?= $img->getNumDescargas() ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

@@ -8,6 +8,8 @@ function esOpcionMenuActiva(string $opcionMenu): bool
     return strpos($_SERVER['PHP_SELF'], $opcionMenu) !== false;
 }
 
+//En este caso como es más de una opción, se comprueba con un array.
+
 function existeOpcionMenuActivaEnArray(array $opciones): bool
 {
 
@@ -19,7 +21,7 @@ function existeOpcionMenuActivaEnArray(array $opciones): bool
     return false;
 }
 
-//Función para extraer 3 partners de un array y los devuelve
+//Función para extraer 3 partners de un array.
 
 function extraerPartners(array $partners): array
 {

@@ -2,6 +2,8 @@
         <?php foreach ($imagenes as $imagen): ?>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="sol">
+
+        <!-- Aquí se recogerán los métodos que devuelves las rutas de la imágenes que deben mostrarse, numVisualizaciones,numLikes y numDescargas -->
                     <img class="img-responsive" src="<?= $imagen->getUrlPortfolio() ?>" alt="<?= $imagen->getDescripcion() ?>">
                     <div class="behind">
                         <div class="head text-center">

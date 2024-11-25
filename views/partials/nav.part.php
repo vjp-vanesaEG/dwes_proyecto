@@ -9,13 +9,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand page-scroll" href="#page-top">
-        <span>[PHOTO]</span>
+        <span>Proyecto DWES. Vanesa EG</span>
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="menu">
       <ul class="nav navbar-nav">
 
-        <!--  -->
+        <!-- Aquí se llama a las funciones para así saber si están activas y poder navegar entre ellas -->
         <li class="<?php echo esOpcionMenuActiva("/index.php") ? "active" : "" ?> lien">
           <a href="<?php echo esOpcionMenuActiva("/index.php") ? "#" : "index.php" ?>">
             <i class="fa fa-home sr-icons"></i> Home
@@ -42,7 +42,7 @@
             <i class="fa fa-image sr-icons"></i> Gallery
           </a>
         </li>
-        <!-- este lo hemos añadido despues-->
+        <!-- Añadido cuando creamos la opción Partners -->
         <li class="<?php echo esOpcionMenuActiva("/partners.php") ? "active" : "" ?>">
           <a href="<?php echo esOpcionMenuActiva("/partners.php") ? "#" : "partners.php" ?>">
             <i class="fa fa-hand-o-right sr-icons"></i> Partners

@@ -5,11 +5,12 @@ require_once 'entities/database/IEntity.class.php';
 
 class ImagenGaleria implements IEntity
 {
-    // Definimos las rutas de las imágenes de portfolio y galería
+    // Definimos las rutas de las imágenes de portfolio y galería en constantes.
 
     const rutaImagenesPortfolio = 'images/index/portfolio/';
     const rutaImagenesGallery = 'images/index/gallery/';
 
+    //Atributos de la clase y que se encontrarán así en nuestra BBDD.
     private $nombre;
     private $descripcion;
     private $numVisualizaciones;
@@ -18,6 +19,7 @@ class ImagenGaleria implements IEntity
     private $id;
     private $categoria;
 
+    //Constructor con atributos inicializados por defecto.
     public function __construct(string $nombre = '', string $descripcion = '', int $categoria = 0, int $numVisualizaciones = 0, int $numLikes = 0, int $numDescargas = 0)
     {
         $this->nombre = $nombre;
@@ -28,6 +30,8 @@ class ImagenGaleria implements IEntity
         $this->id = null;
         $this->categoria = $categoria;
     }
+
+    //Getters y Setters de la clase
 
     public function getNombre(): string
     {
@@ -79,16 +83,6 @@ class ImagenGaleria implements IEntity
         $this->numDescargas = $numDescargas;
     }
 
-    public function getUrlPortfolio(): string
-    {
-        return self::rutaImagenesPortfolio . $this->getNombre();
-    }
-
-    public function getUrlGallery(): string
-    {
-        return self::rutaImagenesGallery . $this->getNombre();
-    }
-
     public function getCategoria()
     {
         return $this->categoria;
@@ -107,6 +101,18 @@ class ImagenGaleria implements IEntity
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    //Funciones para generar la ruta de las imágenes: portfolio y gallery. Las usaremos en imageGallery.part
+
+    public function getUrlPortfolio(): string
+    {
+        return self::rutaImagenesPortfolio . $this->getNombre();
+    }
+
+    public function getUrlGallery(): string
+    {
+        return self::rutaImagenesGallery . $this->getNombre();
     }
 
     //Array asociativo que muestra todas las propiedades de la clase (clave,valor).
