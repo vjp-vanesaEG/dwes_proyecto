@@ -4,7 +4,8 @@ require_once 'utils/strings.php';
 require_once 'entities/App.class.php';
 require_once 'entities/Categoria.class.php';
 
-abstract class QueryBuilder{
+abstract class QueryBuilder
+{
 
     private $connection;
     private $table;
@@ -19,7 +20,8 @@ abstract class QueryBuilder{
     }
 
     // Recupera todos los registros de una tabla en una base de datos.
-    public function findAll(){
+    public function findAll()
+    {
 
         $sqlStatement = "Select * from $this->table";
         $pdoStatement = $this->connection->prepare($sqlStatement);
@@ -33,19 +35,21 @@ abstract class QueryBuilder{
         //PDO::FETCH_PROPS_LATE: Primero llama al constructor de la clase, luego asigna los valores.
     }
 
+    //Inicia una transacción SQL para que todos los cambios realizados en este bloque se apliquen juntos (en caso de éxito) o se deshagan (en caso de error).
     public function incrementaNumCategoria(int $categoria)
     {
         try {
             $this->connection->beginTransaction();
             $sql = "UPDATE categorias SET numImagenes=numImagenes+1 WHERE id=$categoria";
             $this->connection->exec($sql);
-            $this->connection->commit();
+            $this->connection->commit(); //guarda los cambios de manera permanente si todo se ejecuta correctamente.
         } catch (Exception $exception) {
             throw new Exception(($exception->getMessage()));
             $this->connection->rollBack();
         }
     }
 
+    //Función que inserta un registro en la base de datos usando los datos de la entidad que recibe
     public function save(IEntity $entity): void
     {
         try {
@@ -62,40 +66,12 @@ abstract class QueryBuilder{
             $statement = $this->connection->prepare($sql);
             $statement->execute($parameters);
 
-            if($entity instanceof ImagenGaleria){
-                $this->incrementaNumCategoria($entity->getCategoria());
+            if ($entity instanceof ImagenGaleria) {
+                $this->incrementaNumCategoria($entity->getCategoria()); //Contabiliza el nº de imagenes pertenecientes a cada categoría.
             }
-    
-
         } catch (PDOException $exception) {
             // throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
             die($exception->getMessage());
         }
     }
-
-    //     public function save(IEntity $entity): void
-    //     {
-
-    //         $parameters = $entity->toArray();
-
-    //             $sql = sprintf(
-    //                 'insert into %s (%s) values(%s)',
-    //                 $this->table,
-    //                 implode(', ', array_keys($parameters)),
-    //                 ':' . implode(',:', array_keys($parameters)) // :id, :nombre, :descripcion
-    //             );
-
-    //         try {
-    //             $statement = $this->connection->prepare($sql);
-    //             $statement->execute($parameters);
-
-    //             if($entity instanceof ImagenGaleria){
-    //                 $this->incrementaNumCategoria($entity->getCategoria()); //Si es una imagen lo que hay en la tabla, incrementa el número de imagenes correspondiente en la tabla ccategorias
-    //             }
-
-    //         } catch (PDOException $exception) {
-    //             throw new  QueryException(getErrorString($exception));
-    //         }
-    //     }
-
 }
