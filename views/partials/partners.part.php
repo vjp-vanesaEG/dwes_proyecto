@@ -7,28 +7,22 @@
             </p>
             <h4>Our Main Partners</h4>
             <hr>
+            <?php
+            // Obtener los partners de la base de datos
+            $partners = extraerPartners();  // Esta función obtiene los datos de la base de datos
+
+            ?>
             <div class="text-muted text-left">
-
-                <?php
-
-                if (count($arrayPartners) <= 3) { // si el array tiene 3 o menos elementos los muestra todos 
-                    $mostrarPartner = $arrayPartners;
-                } else {
-                    if (count($arrayPartners) > 3) { // si el array tiene mas de 3 elementos solo muestra tres y llama al metodo extraerPartners
-                        $mostrarPartner = extraerPartners($arrayPartners);
-                    }
-                }
-
-                ?>
-                <!-- Mostraremos con una tabla los asociados justo debajo del envío del formulario -->
-                <?php foreach ($mostrarPartner as $partner): ?>
+                <!-- Lista de socios con sus logotipos -->
+                <!-- Lista de socios seleccionados -->
+                <?php foreach ($sociosSeleccionados as $socio): ?>
                     <ul class="list-inline">
-                        <li><img src="<?= $partner->getRutaLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>" width="100px"></li>
-                        <li><?= $partner->getNombre(); ?></li>
+                        <li><img src="<?= $socio->getUrlLogo() ?>" alt="logo" width="50px"></li>
+                        <li><?= htmlspecialchars($socio->getNombre()) ?></li>
                     </ul>
                 <?php endforeach; ?>
-
             </div>
+
         </div>
     </div>
 </div>

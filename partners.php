@@ -1,13 +1,14 @@
 <?php
 
-require 'utils/utils.php';
+require_once 'utils/utils.php';
 require_once 'entities/Partners.class.php';
-require_once 'entities/ImagenGaleria.class.php';
 require_once 'entities/repository/PartnersRepositorio.class.php';
-require_once 'entities/File.class.php';
 require_once 'entities/Connection.class.php';
+require_once 'entities/App.class.php';
+require_once 'entities/ImagenGaleria.class.php';
+require_once 'exceptions/QueryException.class.php';
 require_once 'exceptions/AppException.class.php';
-require_once 'exceptions/FileException.class.php';
+require_once 'entities/File.class.php';
 
 $errores = [];
 $descripcion = '';
@@ -51,4 +52,4 @@ try {
     $partners = $partnerRepositorio->findAll();
 }
 
-require 'views/partners.views.php';
+require_once 'views/partners.views.php';

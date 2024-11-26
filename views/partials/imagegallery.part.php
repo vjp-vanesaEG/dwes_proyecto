@@ -2,6 +2,7 @@
         <?php foreach ($imagenes as $imagen): ?>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="sol">
+              <?php  shuffle($imagenes); ?> <!-- Para que las imágenes se pongan aleatorias en cada categoría -->
 
         <!-- Aquí se recogerán los métodos que devuelves las rutas de la imágenes que deben mostrarse, numVisualizaciones,numLikes y numDescargas -->
                     <img class="img-responsive" src="<?= $imagen->getUrlPortfolio() ?>" alt="<?= $imagen->getDescripcion() ?>">

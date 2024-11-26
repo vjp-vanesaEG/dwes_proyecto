@@ -11,7 +11,7 @@
             <h1>GALLERY</h1>
             <hr>
 
-            <!-- Envío del formulario, en este caso subida del archivo. Si se manda correctamente se mostrará x mensaje y si no se selecciona nada se mostrarán los mensajes correspondientes  -->
+            <!-- Envío del formulario, en este caso subida del archivo. Si se manda correctamente se mostrará "x" mensaje y si no se selecciona nada se mostrarán los mensajes correspondientes  -->
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
                 <div class="alert alert-<?= empty($errores) ? 'info' : 'danger'; ?>alert-dismissibre" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
