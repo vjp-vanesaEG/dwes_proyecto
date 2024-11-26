@@ -78,10 +78,11 @@
     }catch(PDOException $exception){
         $errores[] = $exception->getMessage();
     }
-    finally{ //Aquí se cargarán todas las imágenes con sus categorías.
+    finally{ 
         
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
         
+        //Aquí se cargarán todas las imágenes con sus categorías.
         $imagenes = $imagenRepository->findAll();
         $categorias = $categoriaRepositorio->findAll();
     }

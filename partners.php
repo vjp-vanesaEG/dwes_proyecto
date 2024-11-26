@@ -2,6 +2,7 @@
 
 require 'utils/utils.php';
 require_once 'entities/Partners.class.php';
+require_once 'entities/ImagenGaleria.class.php';
 require_once 'entities/repository/PartnersRepositorio.class.php';
 require_once 'entities/File.class.php';
 require_once 'entities/Connection.class.php';

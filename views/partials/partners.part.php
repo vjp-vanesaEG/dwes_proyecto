@@ -20,6 +20,7 @@
                 }
 
                 ?>
+                <!-- Mostraremos con una tabla los asociados justo debajo del envío del formulario -->
                 <?php foreach ($mostrarPartner as $partner): ?>
                     <ul class="list-inline">
                         <li><img src="<?= $partner->getRutaLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>" width="100px"></li>

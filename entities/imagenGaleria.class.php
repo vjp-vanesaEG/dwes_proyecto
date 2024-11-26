@@ -19,7 +19,7 @@ class ImagenGaleria implements IEntity
     private $id;
     private $categoria;
 
-    //Constructor con atributos inicializados por defecto.
+    //Constructor con atributos inicializados por defecto(porque al extraerlos de la BBDD si no están inicializados nos daría error).
     public function __construct(string $nombre = '', string $descripcion = '', int $categoria = 0, int $numVisualizaciones = 0, int $numLikes = 0, int $numDescargas = 0)
     {
         $this->nombre = $nombre;

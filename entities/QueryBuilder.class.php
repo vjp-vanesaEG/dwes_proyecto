@@ -6,24 +6,19 @@ require_once 'entities/Categoria.class.php';
 
 abstract class QueryBuilder{
 
-    /**
-     * @var PDO
-     */
     private $connection;
     private $table;
     private $classEntity;
 
-    /**
-     * @param PDO $connection
-     */
+    // Le pasamos el nombre de la tabla y la clase de la que queremos obtener los datos.
     public function __construct($table, $classEntity)
     {
-        $this->connection = App::getConnection();
+        $this->connection = App::getConnection();   // Obtiene la conexión a la BBDD desde la clase App.
         $this->table = $table;
         $this->classEntity = $classEntity;
     }
 
-
+    // Recupera todos los registros de una tabla en una base de datos.
     public function findAll(){
 
         $sqlStatement = "Select * from $this->table";
@@ -33,7 +28,9 @@ abstract class QueryBuilder{
 
             throw new QueryException(getErrorString(ERROR_EXECUTE_STATEMENT));
         }
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity); //Recupera todos los resultados de la consulta.(array asociativo)
+        //PDO::FETCH_CLASS: Crea objetos de la clase indicada para cada fila.
+        //PDO::FETCH_PROPS_LATE: Primero llama al constructor de la clase, luego asigna los valores.
     }
 
     public function incrementaNumCategoria(int $categoria)
