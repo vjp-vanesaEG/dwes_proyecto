@@ -55,7 +55,6 @@ abstract class QueryBuilder
         try {
             $parameters = $entity->toArray();
 
-
             // insert into imagenes (descripcion, categoria) values (bytes, 1)
             $sql = sprintf(
                 'insert into %s (%s) values (%s)',

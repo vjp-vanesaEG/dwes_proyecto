@@ -22,28 +22,13 @@ function existeOpcionMenuActivaEnArray(array $opciones): bool
 }
 
 //Función para extraer 3 partners de un array.
-
-// function extraerPartners(array $partners): array
-// {
-//     shuffle($partners);
-//     return array_slice($partners, 0, 3);
-// }
-
-// Suponiendo que tienes una clase para manejar la conexión a la base de datos
-
-function extraerPartners() {
-    // Aquí deberías ejecutar la consulta a tu base de datos
-    // Ejemplo usando PDO:
-    $pdo = new PDO('mysql:host=localhost;dbname=proyecto', 'user', 'user');
-    $stmt = $pdo->query("SELECT * FROM asociados");
-    
-    // Array para almacenar los objetos de partners
-    $partners = [];
-    
-    // Obtener los resultados de la consulta y crear objetos Partners
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $partners[] = new Partners($row['nombre'], $row['logo'], $row['descripcion']);
+function extraerPartners(array $partners) {
+  
+    if($partners <= 3){
+        return $partners;
     }
 
-    return $partners;
+    shuffle($partners);
+    return array_slice($partners, 0, 3); // Solo queda los 3 partners
+
 }

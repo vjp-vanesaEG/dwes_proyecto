@@ -8,9 +8,6 @@
             <h4>Our Main Partners</h4>
             <hr>
             <?php
-            // Obtener los partners de la base de datos
-            $partners = extraerPartners();  // Esta función obtiene los datos de la base de datos
-
             ?>
             <div class="text-muted text-left">
                 <!-- Lista de socios con sus logotipos -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-11-2024 a las 15:53:30
+-- Tiempo de generación: 27-11-2024 a las 12:45:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,7 +40,10 @@ CREATE TABLE `asociados` (
 
 INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
 (1, 'ViajArte', 'log1.jpg', 'Logo 1'),
-(2, 'logo', 'log2.jpg', 'logo');
+(2, 'logo', 'log2.jpg', 'logo'),
+(3, 'Vanesa', 'log3.jpg', 'logo'),
+(4, 'Los niños', '(1)log1.jpg', ''),
+(5, 'Curry', '(1)log2.jpg', 'vkfhlgjlgjl');
 
 -- --------------------------------------------------------
 
@@ -61,7 +64,7 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
 (1, 'Categoría 1', 4),
 (2, 'Categoría 2', 3),
-(3, 'Categoría 3', 2);
+(3, 'Categoría 3', 3);
 
 -- --------------------------------------------------------
 
@@ -92,7 +95,8 @@ INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `nu
 (33, 'view-hands-holding-smartphone.jpg', 'otro', 0, 0, 0, 3),
 (34, 'female-blogger-streaming-travel-online-with-smartphone.jpg', '', 0, 0, 0, 2),
 (35, '(1)view-hands-holding-smartphone.jpg', '', 0, 0, 0, 3),
-(36, 'DSCF0004.JPG', 'gato', 0, 0, 0, 2);
+(36, 'DSCF0004.JPG', 'gato', 0, 0, 0, 2),
+(37, 'device_7521221 (1).png', 'gasdf', 0, 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -109,6 +113,16 @@ CREATE TABLE `mensajes` (
   `texto` text DEFAULT NULL,
   `fecha` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `nombre`, `apellidos`, `asunto`, `email`, `texto`, `fecha`) VALUES
+(1, '', '', '', '', '', '0000-00-00 00:00:00'),
+(2, '', '', '', '', '', '0000-00-00 00:00:00'),
+(3, '', '', '', '', '', '0000-00-00 00:00:00'),
+(4, 'Manuela', 'Espada', 'Hola', 'vanesaesapada@hotmail.es', 'Hola vamos', '0000-00-00 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -147,7 +161,7 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `asociados`
 --
 ALTER TABLE `asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -159,13 +173,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
