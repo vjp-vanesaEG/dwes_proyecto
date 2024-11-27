@@ -18,7 +18,7 @@ class Mensaje implements IEntity
                 $this->asunto = $asunto;
                 $this->email = $email;
                 $this->texto = $texto;
-                $this->fecha = date("d-m-Y");
+                $this->fecha = date("Y-m-d");
                 $this->id = null;
         }
 

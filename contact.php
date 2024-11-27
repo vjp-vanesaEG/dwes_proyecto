@@ -9,7 +9,6 @@ require_once 'exceptions/QueryException.class.php';
 require_once 'entities/QueryBuilder.class.php';
 require_once 'entities/Connection.class.php';
 require_once 'entities/App.class.php';
-require_once 'views/contact.views.php';
 
 //Validación del formulario para que todos los datos que se envíen sean correctos.
 //En el caso de que no fuera así se mostrarán mensajes con los errores correspondientes.
@@ -76,9 +75,12 @@ try {
         }
     }
 
-    //Sentencias SQL de tipo INSERT
-    $mensaje = new Mensaje($nombre, $apellido, $asunto, $email, $texto);
-    $mensajeRepositorio->save($mensaje);
+    //Crear el mensaje y guardarlo, siempre que los datos estén completos.
+    if(isset($erroresF) && empty($erroresF) && empty($errorEmail)){
+        $mensaje = new Mensaje($nombre, $apellido, $asunto, $email, $texto);
+        $mensajeRepositorio->save($mensaje);
+    }
+   
    
 } catch (FileException $exception) {
     $errores[] = $exception->getMessage();

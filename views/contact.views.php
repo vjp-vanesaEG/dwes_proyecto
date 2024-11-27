@@ -13,7 +13,7 @@
 			<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
 			<!-- Comprobación de si no hay errores de ningún tipo, mostrar en el array datos, los datos que se envían -->
-			<?php if (isset($errores) && empty($errores) && empty($errorEmail)): ?>
+			<?php if (isset($erroresF) && empty($erroresF) && empty($errorEmail)): ?>
 				<div class="alert alert-info">
 					<?php
 					foreach ($datos as $dato) {
@@ -25,10 +25,10 @@
 
 			<!-- Comprobación de que existen errores y los muestra en el array errores, los fallos que hay -->
 
-			<?php if (isset($errores) && !empty($errores)): ?>
+			<?php if (isset($erroresF) && !empty($erroresF)): ?>
 				<div class="alert alert-danger">
 					<?php
-					foreach ($errores as $error) {
+					foreach ($erroresF as $error) {
 						echo "$error <br>";
 					}
 					?>
