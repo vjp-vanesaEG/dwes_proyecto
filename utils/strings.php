@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\utils;
+
 define('ERROR_MV_UP_FILE', 9);
 define('ERROR_EXECUTE_STATEMENT', 10);
 define('ERROR_APP_CORE',11);

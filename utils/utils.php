@@ -1,5 +1,6 @@
 <?php
 
+namespace proyecto\utils;
 //Funciones para comprobar si la opción del menú está activa o no.
 
 function esOpcionMenuActiva(string $opcionMenu): bool

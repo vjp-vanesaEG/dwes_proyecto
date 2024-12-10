@@ -30,7 +30,7 @@
             <?php endif; ?>
 
             <!-- enctype es un atributo necesario cuando el formulario contiene campos que permiten cargar archivos, relacionado con type="file" -->
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>">
+            <form class="form-horizontal" method="post"  enctype="multipart/form-data" action="imagenes_galeriaNueva">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Image</label>
