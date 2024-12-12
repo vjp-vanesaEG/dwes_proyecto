@@ -1,24 +1,27 @@
 <?php
 
-require_once 'utils/utils.php';
-require_once 'entities/Partners.class.php';
-require_once 'entities/repository/PartnersRepositorio.class.php';
-require_once 'entities/Connection.class.php';
-require_once 'entities/App.class.php';
-require_once 'entities/ImagenGaleria.class.php';
-require_once 'exceptions/QueryException.class.php';
-require_once 'exceptions/AppException.class.php';
-require_once 'entities/File.class.php';
+// require_once 'utils/utils.php';
+// require_once 'entities/Partners.class.php';
+// require_once 'entities/repository/PartnersRepositorio.class.php';
+// require_once 'entities/App.class.php';
+// require_once 'entities/ImagenGaleria.class.php';
+// require_once 'exceptions/QueryException.class.php';
+// require_once 'exceptions/AppException.class.php';
+// require_once 'entities/File.class.php';
+
+use proyecto\entities\PartnersRepositorio;
+use proyecto\entities\ImagenGaleria;
+use proyecto\entities\File;
+use proyecto\entities\Partners;
+use proyecto\entities\FileException;
+use proyecto\entities\QueryException;
+use proyecto\entities\AppException;
 
 $errores = [];
 $descripcion = '';
 $mensaje = '';
 
 try {
-
-    //Crea una conexión con la BBDD
-    $config = require_once 'app/config.php';
-    App::bind('config', $config);
 
     //Uso: realizar INSERT y SELECT con la BBDD
     $partnerRepositorio = new PartnersRepositorio();

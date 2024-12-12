@@ -2,7 +2,7 @@
 require_once "utils/utils.php";
 require_once "entities/ImagenGaleria.class.php";
 require_once 'entities/Partners.class.php';
-require_once 'entities/Connection.class.php';
+require_once 'entities/App.php';
 require_once 'entities/repository/ImagenGaleriaRepositorio.class.php';
 require_once "entities/repository/PartnersRepositorio.class.php";
 
@@ -14,10 +14,7 @@ $imagenes = [];
 $partners = [];
 
 try{
-    $config=require_once 'app/config.php';
-  
-    App::bind('config',$config);
-  
+
     $imagenRepositorio= new ImagenGaleriaRepositorio();
     $asociadoRepositorio= new PartnersRepositorio();
   }

@@ -10,17 +10,14 @@
     // require_once 'entities/repository/CategoriaRepositorio.class.php';
 
     use proyecto\entities;
+    use proyecto\entities\FileException;
+    use proyecto\entities\AppException;
+    use proyecto\entities\QueryException;
 
     $errores = [];
-    $descripcion = '';
     
     try {
-        //Acceso al archivo de configuración de la base de datos
-        $config = require_once 'app/config.php';
-
-        //Guardamos la configuración en el contenedor de servicios:
-        App::bind('config',$config);
-
+       
         $imagenRepository = new ImagenGaleriaRepositorio();
         $categoriaRepository = new CategoriaRepositorio();
 

@@ -22,10 +22,6 @@ $email = '';
 $texto = '';
 try {
 
-    //Crea una conexión con la BBDD
-    $config = require_once 'app/config.php';
-    App::bind('config', $config);
-
     //Uso: realizar INSERT y SELECT con la BBDD
     $mensajeRepositorio = new MensajeRepositorio();
 

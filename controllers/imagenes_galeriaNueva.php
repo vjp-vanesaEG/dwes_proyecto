@@ -12,7 +12,6 @@
     use proyecto\entities;
 
 
-    $errores = [];
     $descripcion = '';
     $mensaje = '';
     
@@ -22,11 +21,6 @@
 
         //Guardamos la configuración en el contenedor de servicios:
         App::bind('config',$config);
-
-        //Ya no necesitamos llamar al método make
-        //$connection = Connection::make($config['database']);
-        //Podemos obtener la conexion llamando al método getConection
-        //$connection = App::getConnection();
 
         $imagenRepository = new ImagenGaleriaRepositorio();
         $categoriaRepositorio = new CategoriaRepositorio();
