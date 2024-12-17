@@ -1,7 +1,5 @@
 <!-- Navigation Bar -->
- <?php
-  use proyecto\utils;
-?>
+
 <nav class="navbar navbar-fixed-top navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -19,35 +17,35 @@
       <ul class="nav navbar-nav">
 
         <!-- Aquí se llama a las funciones para así saber si están activas y poder navegar entre ellas -->
-        <li class="<?php echo utils\esOpcionMenuActiva("/index") ? "active" : "" ?> lien">
-          <a href="<?php echo utils\esOpcionMenuActiva("/index") ? "#" : "index" ?>">
+        <li class="<?php echo esOpcionMenuActiva("/index") ? "active" : "" ?> lien">
+          <a href="<?php echo esOpcionMenuActiva("/index") ? "#" : "index" ?>">
             <i class="fa fa-home sr-icons"></i> Home
           </a>
         </li>
-        <li class="<?php echo utils\esOpcionMenuActiva("/about") ? "active" : "" ?> lien">
-          <a href="<?php echo utils\esOpcionMenuActiva("/about") ? "#" : "about" ?>">
+        <li class="<?php echo esOpcionMenuActiva("/about") ? "active" : "" ?> lien">
+          <a href="<?php echo esOpcionMenuActiva("/about") ? "#" : "about" ?>">
             <i class="fa fa-bookmark sr-icons"></i> About
           </a>
         </li>
-        <li class="<?php echo utils\existeOpcionMenuActivaEnArray(['/blog', '/single_post']) ? 'active' : "" ?> lien">
-          <a href="<?php echo utils\esOpcionMenuActiva("/blog") ? "#" : "blog" ?>">
+        <li class="<?php echo existeOpcionMenuActivaEnArray(['/blog', '/single_post']) ? 'active' : "" ?> lien">
+          <a href="<?php echo esOpcionMenuActiva("/blog") ? "#" : "blog" ?>">
             <i class="fa fa-file-text sr-icons"></i> Blog
           </a>
         </li>
-        <li class="<?php echo utils\esOpcionMenuActiva("/contact") ? "active" : "" ?> lien">
-          <a href="<?php echo utils\esOpcionMenuActiva("/contact") ? "#" : "contact" ?>">
+        <li class="<?php echo esOpcionMenuActiva("/contact") ? "active" : "" ?> lien">
+          <a href="<?php echo esOpcionMenuActiva("/contact") ? "#" : "contact" ?>">
             <i class="fa fa-phone-square sr-icons"></i> Contact
           </a>
         </li>
         <!-- Lo añadimos cuando ya funciona la subida de archivos -->
-        <li class="<?php echo utils\esOpcionMenuActiva("/galeria") ? "active" : "" ?> lien">
-          <a href="<?php echo utils\esOpcionMenuActiva("/galeria") ? "#" : "galeria" ?>">
+        <li class="<?php echo esOpcionMenuActiva("/galeria") ? "active" : "" ?> lien">
+          <a href="<?php echo esOpcionMenuActiva("/galeria") ? "#" : "galeria" ?>">
             <i class="fa fa-image sr-icons"></i> Gallery
           </a>
         </li>
         <!-- Añadido cuando creamos la opción Partners -->
-        <li class="<?php echo utils\esOpcionMenuActiva("/partners") ? "active" : "" ?>">
-          <a href="<?php echo utils\esOpcionMenuActiva("/partners") ? "#" : "partners" ?>">
+        <li class="<?php echo esOpcionMenuActiva("/partners") ? "active" : "" ?>">
+          <a href="<?php echo esOpcionMenuActiva("/partners") ? "#" : "partners" ?>">
             <i class="fa fa-hand-o-right sr-icons"></i> Partners
           </a>
         </li>

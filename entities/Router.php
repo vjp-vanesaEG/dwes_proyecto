@@ -22,11 +22,11 @@ public static function load(string $file): Router{
 
 
 public function get(array $controller): void{  //array para guardar la tabla de rutas
-        $this->routes ['GET']= $controller;
+        $this->routes['GET']= $controller;
 }
 
 public function post(string $Uri, string $controller): void{  //array para guardar la tabla de rutas
-    $this->routes ['POST'][$Uri]= $controller;
+    $this->routes['POST'][$Uri]= $controller;
 }
 
 public function direct(string $Uri, string $method):string{

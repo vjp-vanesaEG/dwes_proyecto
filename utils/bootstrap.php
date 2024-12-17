@@ -13,7 +13,7 @@ use proyecto\entities\repository\MyLog;
 $config = require_once '../app/config.php';
 App::bind('config', $config);
 
-App::bind('router', Router::load('utils/routes.php'));
+App::bind('router', Router::load('../utils/routes.php'));
 
 App::bind('logger', new MyLog('logs/proyecto.logs'));
 
